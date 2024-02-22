@@ -24,4 +24,28 @@ public class StringUtilTest {
     public void repeatStringNegativeTimes() {
         StringUtil.repeat("hola", -1);
     }
+
+    @Test
+    public void strIsNoEmpty() {
+        boolean result = StringUtil.isEmpty("HolaMundo");
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void strIsEmptyWithNoSpaces() {
+        boolean result = StringUtil.isEmpty("");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void strIsEmptyWithAnySpaces() {
+        boolean result = StringUtil.isEmpty("   ");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void strNullIsEmpty() {
+        boolean result = StringUtil.isEmpty(null);
+        Assert.assertTrue(result);
+    }
 }
