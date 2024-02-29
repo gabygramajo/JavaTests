@@ -45,6 +45,7 @@ public class Movie {
     public String toString() {
         return "id=" + id +
                 ", name='" + name + '\'' +
+                ", director='" + director + '\'' +
                 ", minutes=" + minutes +
                 ", genre=" + genre;
     }
@@ -53,11 +54,11 @@ public class Movie {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Movie movie)) return false;
-        return minutes == movie.minutes && Objects.equals(id, movie.id) && Objects.equals(name, movie.name) && genre == movie.genre;
+        return minutes == movie.minutes && Objects.equals(id, movie.id) && Objects.equals(name, movie.name) && Objects.equals(director, movie.director) && genre == movie.genre;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, minutes, genre);
+        return Objects.hash(id, name, director, minutes, genre);
     }
 }
