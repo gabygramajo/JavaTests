@@ -5,16 +5,18 @@ import java.util.Objects;
 public class Movie {
     private Integer id;
     private String name;
+    private String director;
     private int minutes;
     private Genre genre;
 
-    public Movie(String name, int minutes, Genre genre) {
-        this(null, name, minutes, genre);
+    public Movie(String name, String director, int minutes, Genre genre) {
+        this(null, name, director, minutes, genre);
     }
 
-    public Movie(Integer id, String name, int minutes, Genre genre) {
+    public Movie(Integer id, String name, String director, int minutes, Genre genre) {
         this.id = id;
         this.name = name;
+        this.director = director;
         this.minutes = minutes;
         this.genre = genre;
     }
@@ -27,12 +29,24 @@ public class Movie {
         return name;
     }
 
+    public String getDirector() {
+        return director;
+    }
+
     public int getMinutes() {
         return minutes;
     }
 
     public Genre getGenre() {
         return genre;
+    }
+
+    @Override
+    public String toString() {
+        return "id=" + id +
+                ", name='" + name + '\'' +
+                ", minutes=" + minutes +
+                ", genre=" + genre;
     }
 
     @Override
