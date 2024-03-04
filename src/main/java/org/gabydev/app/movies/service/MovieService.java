@@ -14,13 +14,27 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
-    public Collection<Movie> fintMoviesByGenre(Genre genre) {
+    public Collection<Movie> findMoviesByGenre(Genre genre) {
         return movieRepository.findAll().stream()
                 .filter(movie -> movie.getGenre() == genre).collect(Collectors.toList());
     }
 
-    public Collection<Movie> fintMoviesByLength(int lentgh) {
+    public Collection<Movie> findMoviesByLength(int lentgh) {
         return movieRepository.findAll().stream()
                 .filter(movie -> movie.getMinutes() <= lentgh).collect(Collectors.toList());
+    }
+
+    public Collection<Movie> findMovieByName(String name) {
+        return movieRepository.findAll().stream()
+                .filter(movie -> movie.getName().toLowerCase()
+                        .contains(name.toLowerCase())
+                ).collect(Collectors.toList());
+    }
+
+    public Collection<Movie> findMovieByDirector(String director) {
+        return movieRepository.findAll().stream()
+                .filter(movie -> movie.getDirector().toLowerCase()
+                        .contains(director.toLowerCase())
+                ).collect(Collectors.toList());
     }
 }

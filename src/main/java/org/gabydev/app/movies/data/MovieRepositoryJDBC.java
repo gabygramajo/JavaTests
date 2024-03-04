@@ -36,6 +36,7 @@ public class MovieRepositoryJDBC implements MovieRepository {
     private static RowMapper<Movie> movieMapper = (rs, rowNum) -> new Movie(
             rs.getInt("id"),
             rs.getString("name"),
+            rs.getString("director"),
             rs.getInt("minutes"),
             Genre.valueOf(rs.getString("genre"))
     );
